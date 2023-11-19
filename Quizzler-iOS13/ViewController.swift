@@ -45,8 +45,11 @@ class ViewController: UIViewController {
         print(questionNumber, quiz.count)
         if questionNumber < quiz.count - 1{
             questionNumber += 1
-            updateUI()
+        }else{
+            questionNumber = 0
         }
+        
+        updateUI()
     }
     
     func updateUI(){
