@@ -17,11 +17,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var trueButton: UIButton!
     
-    let quiz: [[String]] = [
-        ["Is the sky blue?", "True"],
-        ["Do dogs meow?", "False"],
-        ["Is the Earth flat?", "False"]
+    let quiz: [Question] = [
+        Question(text: "Is the sky blue?", answer: "True"),
+        Question(text: "Do dogs meow?", answer: "False"),
+        Question(text: "Is the Earth flat?", answer: "False")
     ]
+
     
     var questionNumber = 0
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class ViewController: UIViewController {
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle // True, False
-        let actualAnswer = quiz[questionNumber][1]
+        let actualAnswer = quiz[questionNumber].answer
         
         if userAnswer == actualAnswer {
             print("right")
@@ -53,7 +54,7 @@ class ViewController: UIViewController {
     }
     
     func updateUI(){
-        questionLabel.text = quiz[questionNumber][0]
+        questionLabel.text = quiz[questionNumber].text
     }
 }
 
