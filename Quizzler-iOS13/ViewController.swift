@@ -65,9 +65,9 @@ class ViewController: UIViewController {
     
     @objc func updateUI(){
         questionLabel.text = quiz[questionNumber].text
-            self.trueButton.backgroundColor = UIColor.clear
-            self.falseButton.backgroundColor = UIColor.clear
-        progressBar.progress = Float(questionNumber)/Float(quiz.count)
+        self.trueButton.backgroundColor = UIColor.clear
+        self.falseButton.backgroundColor = UIColor.clear
+        progressBar.progress = Float(questionNumber + 1)/Float(quiz.count)
     }
 }
 
