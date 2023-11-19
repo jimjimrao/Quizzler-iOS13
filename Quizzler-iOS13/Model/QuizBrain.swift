@@ -44,10 +44,10 @@ struct QuizBrain {
     }
     
     mutating func nextQuestion() {
-        if self.questionNumber + 1 < quiz.count{
-            self.questionNumber += 1
+        if questionNumber + 1 < quiz.count{
+            questionNumber += 1
         }else{
-            self.questionNumber = 0
+            questionNumber = 0
         }
     }
 }
