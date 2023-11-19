@@ -42,20 +42,18 @@ class ViewController: UIViewController {
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
     
-    @objc func updateUI(){
+    @objc func updateUI() {
         questionLabel.text = quizBrain.getQuestionText()
         progressBar.progress = quizBrain.getQuizProgress()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
         let answers = quizBrain.getAnswers()
         
-        answer1.setTitle(answers[0], for: .normal)
-        answer2.setTitle(answers[1], for: .normal)
-        answer3.setTitle(answers[2], for: .normal)
+        let buttons = [answer1, answer2, answer3] // Store your answer buttons in an array
         
-        answer1.backgroundColor = UIColor.clear
-        answer2.backgroundColor = UIColor.clear
-        answer3.backgroundColor = UIColor.clear
-        
+        for (index, button) in buttons.enumerated() {
+            button?.setTitle(answers[index], for: .normal) // Set title for each button
+            button?.backgroundColor = UIColor.clear // Clear button background color
+        }
     }
 }
 
